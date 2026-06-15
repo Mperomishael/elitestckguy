@@ -116,7 +116,7 @@ interface HeroProps {
   onStartTrading?: () => void;
 }
 
-export default function Hero({ onStartTrading }: HeroProps) {
+export default function Hero(_props: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
