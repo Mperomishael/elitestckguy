@@ -214,7 +214,7 @@ export default function Hero({ onStartTrading }: HeroProps) {
 
             <div className="hero-cta flex flex-wrap items-center gap-4">
               <button
-                onClick={onStartTrading}
+                onClick={() => { window.location.href = 'https://user.eliteblockmarket.com'; }}
                 className="group bg-neon text-black font-bold text-sm px-8 py-4 rounded-full hover:brightness-110 transition-all duration-200 neon-glow flex items-center gap-2"
               >
                 Start Trading
@@ -252,7 +252,7 @@ export default function Hero({ onStartTrading }: HeroProps) {
           <div className="hero-phone relative flex justify-center lg:justify-end z-20">
             <div className="relative animate-float drop-shadow-2xl">
               <img
-                src="/images/pc_main.png"
+                src="/images/hero-dashboard.png"
                 alt="ELITEBLOCKMARKET Trading Platform"
                 className="w-full max-w-[320px] lg:max-w-[500px] xl:max-w-[600px] drop-shadow-[0_0_60px_rgba(204,255,0,0.3)] relative z-20 hover:drop-shadow-[0_0_80px_rgba(204,255,0,0.4)] transition-all duration-500"
               />
