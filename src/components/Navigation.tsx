@@ -51,7 +51,7 @@ export default function Navigation() {
             <img
               src="/images/logo.png"
               alt="ELITEBLOCKMARKET"
-              className="h-16 w-auto object-contain"
+              className="h-12 sm:h-14 lg:h-20 w-auto object-contain"
             />
           </a>
 
