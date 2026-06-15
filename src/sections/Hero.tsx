@@ -252,9 +252,9 @@ export default function Hero(_props: HeroProps) {
           <div className="hero-phone relative flex justify-center lg:justify-end z-20">
             <div className="relative animate-float drop-shadow-2xl">
               <img
-                src="/images/hero-dashboard.png"
+                src="/images/hero-dashboard-nobg.png"
                 alt="ELITEBLOCKMARKET Trading Platform"
-                className="w-full max-w-[320px] lg:max-w-[500px] xl:max-w-[600px] drop-shadow-[0_0_60px_rgba(204,255,0,0.3)] relative z-20 hover:drop-shadow-[0_0_80px_rgba(204,255,0,0.4)] transition-all duration-500"
+                className="w-full max-w-[420px] lg:max-w-[640px] xl:max-w-[760px] drop-shadow-[0_0_60px_rgba(204,255,0,0.3)] relative z-20 hover:drop-shadow-[0_0_80px_rgba(204,255,0,0.4)] transition-all duration-500"
               />
               <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-neon/20 border border-neon/50 flex items-center justify-center backdrop-blur-md shadow-lg shadow-neon/20 z-20">
                 <span className="text-neon font-mono text-xs font-bold">BTC</span>
