@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Home from './pages/Home';
 import AuthPage from './pages/AuthPage';
-// Match the filename exactly (singular)
-import { ActivityNotification } from './components/ActivityNotification'; 
+// Updated import to match activity-notifications.tsx
+import { ActivityNotifications } from './components/activity-notifications'; 
 import { Toaster } from 'sonner';
 
 export default function App() {
@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <>
-      <ActivityNotification />
+      <ActivityNotifications />
       <Toaster position="top-right" richColors />
 
       <main className="min-h-screen">
