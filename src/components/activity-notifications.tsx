@@ -24,6 +24,15 @@ const activities = [
   { country: "Madagascar", action: "is trading with", amount: 34234, type: "trading" },
   { country: "Canada", action: "made", amount: 23456, type: "profit" },
   { country: "Brazil", action: "made", amount: 19274, type: "profit" },
+  { country: "Austria", action: "made", amount: 15420, type: "profit" },
+  { country: "Australia", action: "is trading with", amount: 45600, type: "trading" },
+  { country: "Kenya", action: "just withdrew", amount: 9800, type: "withdrawal" },
+  { country: "India", action: "made", amount: 12750, type: "profit" },
+  { country: "France", action: "is trading with", amount: 31900, type: "trading" },
+  { country: "Spain", action: "just withdrew", amount: 8750, type: "withdrawal" },
+  { country: "Italy", action: "made", amount: 28900, type: "profit" },
+  { country: "Mexico", action: "is trading with", amount: 17800, type: "trading" },
+  { country: "Japan", action: "just withdrew", amount: 45200, type: "withdrawal" },
 ];
 
 const mockTradingNews: TradingNews[] = [
@@ -42,6 +51,38 @@ const mockTradingNews: TradingNews[] = [
     category: "commodity",
     symbol: "XAU",
     changePercent: 2.8,
+  },
+  {
+    title: "Tesla Stock Surges 8% After Strong Q2 Delivery",
+    description: "EV giant beats expectations with record vehicle deliveries.",
+    source: "CNBC",
+    category: "stock",
+    symbol: "TSLA",
+    changePercent: 8.4,
+  },
+  {
+    title: "Ethereum ETF Inflows Hit $2.3 Billion",
+    description: "Institutional interest in ETH continues to grow rapidly.",
+    source: "Bloomberg",
+    category: "crypto",
+    symbol: "ETH",
+    changePercent: 4.2,
+  },
+  {
+    title: "Crude Oil Prices Jump on Supply Concerns",
+    description: "OPEC+ production cuts spark rally in energy markets.",
+    source: "Reuters",
+    category: "commodity",
+    symbol: "WTI",
+    changePercent: 3.1,
+  },
+  {
+    title: "NVIDIA Breaks $3 Trillion Market Cap",
+    description: "AI boom continues to fuel semiconductor giant's growth.",
+    source: "Wall Street Journal",
+    category: "stock",
+    symbol: "NVDA",
+    changePercent: 2.7,
   }
 ];
 
@@ -55,7 +96,7 @@ export function ActivityNotifications() {
   const playNotificationSound = useCallback(() => {
     try {
       const audio = new Audio('/audio/notification.mp3');
-      audio.volume = 0.9;
+      audio.volume = 1.0;        // Maximum volume
       audio.play().catch(() => console.log("Audio play blocked"));
     } catch (e) {
       console.error("Audio error", e);
@@ -65,6 +106,7 @@ export function ActivityNotifications() {
   useEffect(() => {
     const trigger = () => {
       const shouldShowNews = Math.random() < 0.5;
+      
       if (shouldShowNews) {
         setCurrentNews(mockTradingNews[Math.floor(Math.random() * mockTradingNews.length)]);
         setNotificationType("news");
@@ -75,12 +117,16 @@ export function ActivityNotifications() {
       }
       
       setIsVisible(true);
-      playNotificationSound();        // Sound plays immediately with popup
-      setTimeout(() => setIsVisible(false), 4000); // Popup stays for 4 seconds
+      playNotificationSound();           // Sound plays immediately
+      setTimeout(() => setIsVisible(false), 4000);
     };
 
-    // Changed from 15000 to 10000 (10 seconds)
-    const interval = setInterval(trigger, 10000);
+    // First notification appears immediately on page load
+    trigger();
+
+    // Then every 6 seconds
+    const interval = setInterval(trigger, 6000);
+
     return () => clearInterval(interval);
   }, [playNotificationSound]);
 
