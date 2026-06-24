@@ -22,10 +22,8 @@ const activities = [
   { country: "Poland", action: "just withdrew", amount: 8250, type: "withdrawal" },
   { country: "England", action: "just withdrew", amount: 20169, type: "withdrawal" },
   { country: "Madagascar", action: "is trading with", amount: 34234, type: "trading" },
-   { country: "Canada", action: "made", amount: 23456, type: "profit" },
-   { country: "Brazil", action: "made", amount: 19274, type: "profit" },
-  
-  
+  { country: "Canada", action: "made", amount: 23456, type: "profit" },
+  { country: "Brazil", action: "made", amount: 19274, type: "profit" },
 ];
 
 const mockTradingNews: TradingNews[] = [
@@ -77,11 +75,12 @@ export function ActivityNotifications() {
       }
       
       setIsVisible(true);
-      playNotificationSound();
-      setTimeout(() => setIsVisible(false), 4000);
+      playNotificationSound();        // Sound plays immediately with popup
+      setTimeout(() => setIsVisible(false), 4000); // Popup stays for 4 seconds
     };
 
-    const interval = setInterval(trigger, 15000);
+    // Changed from 15000 to 10000 (10 seconds)
+    const interval = setInterval(trigger, 10000);
     return () => clearInterval(interval);
   }, [playNotificationSound]);
 
